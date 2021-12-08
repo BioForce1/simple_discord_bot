@@ -11,7 +11,6 @@
 
 #You should have received a copy of the GNU General Public License
 #along with this program.  If not, see <https://www.gnu.org/licenses/>.
-#Added a new comment in a separate branch
 #!./.venv/bin/python
 
 import discord      # base discord module
@@ -19,7 +18,14 @@ import code         # code.interact
 import os           # environment variables
 import inspect      # call stack inspection
 import random       # dumb random number generator
-
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("--token/-t")
+args = parser.parse_args()
+if args.verbosity:
+	discord_token = args
+else
+	DISCORD_TOKEN = os.getenv("discord_token")
 from discord.ext import commands,tasks    # Bot class and utils
 from dotenv import load_dotenv
 import youtube_dl
